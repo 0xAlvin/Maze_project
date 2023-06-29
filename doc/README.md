@@ -3,7 +3,7 @@
 ## Background Context
 The goal of this project is to create a game in 3D using raycasting !
 
-<img src="./doc/image.png" height="100%" width="100%">
+<img src="./image.png" height="100%" width="100%">
 
 ### Links on RayCasting concept
 - [SDL2 - Get started.pdf](https://intranet.alxswe.com/rltoken/pMnvq93vpbAh9q6inKQMuQ)
