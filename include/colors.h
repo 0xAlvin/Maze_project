@@ -21,4 +21,16 @@
 // Black color
 #define COLOR_BLACK (SDL_Color) { 0, 0, 0, 255 }
 
+//gray color
+#define COLOR_GRAY (SDL_Color) { 128, 128, 128, 255 }
+
+//dark gray color
+#define COLOR_DARK_GRAY (SDL_Color) { 64, 64, 64, 255 }
+
+//dark blue color
+#define COLOR_DARK_BLUE (SDL_Color) { 0, 0, 128, 255 }
+
+//brown color
+#define COLOR_BROWN (SDL_Color) { 165, 42, 42, 255 }
+
 #endif //_COLORS_H_

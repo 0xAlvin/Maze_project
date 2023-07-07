@@ -6,9 +6,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
+#include "windows.h"
 
 #define windowH 600
 #define windowW 800
+#define playerStep 10
+
+#define true 1
+#define false 0
 
 typedef struct {
     int x;
@@ -24,21 +30,43 @@ typedef struct{
     vector2D p2;
 }Point;
 typedef struct{
-    Point startP;
-    Point endP;
+    Point coordinate;
 }Wall;
 typedef struct{
     Point pos;
+    int angle;
 }Player;
+#define PI 3.14159265
+#define DEG2RAD(deg) (deg * PI / 180)
+#define fov 45
+#define viewRange 1000
+#define TEXTURE_SCALE 2
+#define TEXTURE_HEIGHT
+#define wallWidth 10
+#define wallmaxCount 200
+#define MAX_BUFFER_SIZE 24
+#define Separator ","
+#define buffer = malloc(MAX_BUFFER_SIZE * sizeof(char));
+
+
 // Function prototypes
-vector2D* ray(int x, int y);
-void wall(SDL_Renderer* renderer, int x1, int y1, int x2, int y2);
-void raycast(SDL_Renderer* renderer, int* pos);
+void drawCeilFloor(SDL_Renderer *renderer,SDL_Texture* textureFloor,SDL_Texture* textureCeil);
+void drawWalls(SDL_Renderer *renderer, SDL_Point walls[wallmaxCount][2], int wallCount);
+void drawRays(SDL_Renderer *renderer,SDL_Renderer *renderer2, Player *player, SDL_Point walls[200][2], int wallCount);
 SDL_Rect drawRect(SDL_Renderer *renderer, const char *colorname, int x, int y, int w, int h);
 SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* path);
 void drawCircle(SDL_Renderer *renderer, const char *colorname, int x, int y, int r);
 void drawPlayer(SDL_Renderer* renderer,Player* player);
 int* playerPosition(int x, int y,Player player);
-void sendFrame(SDL_Renderer *renderer);
-void eventHandler(SDL_Event *event, int *isRunning, Player *player);
+Player* createPlayer();
+void sendFrame(SDL_Renderer *renderer,SDL_Renderer *renderer2);
+void eventHandler(SDL_Event *event, int *isRunning, Player *player,SDL_Point walls[wallmaxCount][2], int wallCount);
+SDL_Point CreateTarget(int x, int y, int dir, int dist);
+int PointOnLine(int x1, int y1, int x2, int y2, int tx, int ty);
+int PointDistance(int x1, int y1, int x2, int y2);
+int CheckCollision(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
+SDL_Surface* createPlusTexture(int width, int height);
+Player *movePlayer(Player *player,SDL_Point walls[wallmaxCount][2], int wallCount, int cmd);
+
+ 
 #endif //_MAZE_H_
