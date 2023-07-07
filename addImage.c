@@ -25,7 +25,7 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* path)
 
     return texture;
 }
-SDL_Surface* createPlusTexture(int width, int height)
+SDL_Surface* createPlusTexture(int width, int height)//creates a plus brown texture
 {
     // Create an SDL_Surface with the desired dimensions
     SDL_Surface* plusSurface = SDL_CreateRGBSurface(0, width, height, 32, 0, 0, 0, 0);
