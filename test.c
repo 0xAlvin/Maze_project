@@ -57,3 +57,59 @@
 
 //     return 0;
 // }
+
+// #include <SDL2/SDL.h>
+// int  attilleryInvoke;
+
+
+// int main(int argc, char* argv[]) {
+//     // Initialize SDL
+//     SDL_Init(SDL_INIT_VIDEO);
+
+//     // Create a window
+//     SDL_Window* window = SDL_CreateWindow("SDL Crosshair", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
+
+//     // Create a renderer
+//     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+
+//     // Set the blend mode to enable transparency
+//     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+
+//     // Clear the renderer with a transparent background
+//     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+//     SDL_RenderClear(renderer);
+
+//     // Get the window size
+//     int windowWidth, windowHeight;
+//     SDL_GetWindowSize(window, &windowWidth, &windowHeight);
+
+//     // Calculate the center coordinates of the window
+//     int centerX = windowWidth / 2;
+//     int centerY = windowHeight / 2;
+
+//     // Define the size and thickness of the crosshair lines
+//     int crosshairSize = 20;
+//     int crosshairThickness = 2;
+
+//     // Set the draw color for the crosshair lines (red with transparency)
+//     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 128);
+
+//     // Draw the vertical line of the crosshair
+//     SDL_RenderDrawLine(renderer, centerX, centerY - crosshairSize, centerX, centerY + crosshairSize);
+
+//     // Draw the horizontal line of the crosshair
+//     SDL_RenderDrawLine(renderer, centerX - crosshairSize, centerY, centerX + crosshairSize, centerY);
+
+//     // Update the screen
+//     SDL_RenderPresent(renderer);
+
+//     // Wait for 5 seconds
+//     SDL_Delay(5000);
+
+//     // Clean up resources
+//     SDL_DestroyRenderer(renderer);
+//     SDL_DestroyWindow(window);
+//     SDL_Quit();
+
+//     return 0;
+// }

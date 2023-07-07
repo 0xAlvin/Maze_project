@@ -60,19 +60,9 @@ Player *movePlayer(Player *player,SDL_Point walls[wallmaxCount][2], int wallCoun
         break;
     case 5:
         player->angle -= 10;
-        printf("Angle: %d\n", player->angle);
-        printf("player->pos.p1.x: %d\n", player->pos.p1.x);
-        printf("player->pos.p1.y: %d\n", player->pos.p1.y);
-        printf("player->pos.p2.x: %d\n", player->pos.p2.x);
-        printf("player->pos.p2.y: %d\n", player->pos.p2.y);
         break;
     case 6:
         player->angle += 10;
-        printf("Angle: %d\n", player->angle);
-        printf("player->pos.p1.x: %d\n", player->pos.p1.x);
-        printf("player->pos.p1.y: %d\n", player->pos.p1.y);
-        printf("player->pos.p2.x: %d\n", player->pos.p2.x);
-        printf("player->pos.p2.y: %d\n", player->pos.p2.y);
         break;
     case 7:
         player->pos.p1.y -= playerStep;

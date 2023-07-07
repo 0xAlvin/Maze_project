@@ -67,6 +67,10 @@ int PointDistance(int x1, int y1, int x2, int y2);
 int CheckCollision(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
 SDL_Surface* createPlusTexture(int width, int height);
 Player *movePlayer(Player *player,SDL_Point walls[wallmaxCount][2], int wallCount, int cmd);
+char* attillery(int selectedAttillery);
+void crossHair(SDL_Renderer *renderer, SDL_Window *window);
+
+extern int attilleryInvoke;
 
  
 #endif //_MAZE_H_

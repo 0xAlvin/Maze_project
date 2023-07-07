@@ -29,11 +29,14 @@ SDL_Rect drawRect(SDL_Renderer *renderer, const char *colorname, int x, int y, i
         SDL_SetRenderDrawColor(renderer, COLOR_WHITE.r, COLOR_WHITE.g, COLOR_WHITE.b, COLOR_WHITE.a);
     } else if (strcmp(colorname, "BLACK") == 0) {
         SDL_SetRenderDrawColor(renderer, COLOR_BLACK.r, COLOR_BLACK.g, COLOR_BLACK.b, COLOR_BLACK.a);
-    } else {
+    } else if (strcmp(colorname, "WHITE") == 0) {
         SDL_SetRenderDrawColor(renderer, COLOR_WHITE.r, COLOR_WHITE.g, COLOR_WHITE.b, COLOR_WHITE.a);
+    } else {
+        SDL_SetRenderDrawColor(renderer, COLOR_CLEAR.r, COLOR_CLEAR.g, COLOR_CLEAR.b, COLOR_CLEAR.a);
     }
 
     // Draw a rectangle with the specified color
+    SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
     SDL_Rect rect = { x, y, w, h };
     SDL_RenderFillRect(renderer, &rect);
     return rect;

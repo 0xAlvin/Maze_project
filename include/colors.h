@@ -33,4 +33,7 @@
 //brown color
 #define COLOR_BROWN (SDL_Color) { 165, 42, 42, 255 }
 
+//clear
+#define COLOR_CLEAR (SDL_Color) { 0, 0, 0, 0 }
+
 #endif //_COLORS_H_
