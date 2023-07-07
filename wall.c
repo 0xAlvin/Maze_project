@@ -10,9 +10,14 @@
  *
  * Return: A pointer to the dynamically allocated array of vector2D.
  */
-// const SDL_RenderDrawLine 
-void wall(SDL_Renderer* renderer, int x1, int y1, int x2, int y2)
+// const SDL_RenderDrawLine
+void drawWalls(SDL_Renderer *renderer, SDL_Point walls[wallmaxCount][2], int wallCount)
 {
-    SDL_SetRenderDrawColor(renderer,COLOR_WHITE.r,COLOR_WHITE.g,COLOR_WHITE.b,COLOR_WHITE.a);
-    SDL_RenderDrawLine(renderer, x1, y1, x2, y2);
+    // Loop over each wall and draw it
+    
+    SDL_SetRenderDrawColor(renderer, COLOR_YELLOW.r, COLOR_YELLOW.g, COLOR_YELLOW.b, COLOR_YELLOW.a);
+    for (int i = 0; i < wallCount; i++)
+    {
+        SDL_RenderDrawLine(renderer, walls[i][0].x, walls[i][0].y, walls[i][1].x, walls[i][1].y);
+    }
 }
