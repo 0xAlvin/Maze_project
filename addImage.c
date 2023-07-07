@@ -25,3 +25,38 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* path)
 
     return texture;
 }
+SDL_Surface* createPlusTexture(int width, int height)
+{
+    // Create an SDL_Surface with the desired dimensions
+    SDL_Surface* plusSurface = SDL_CreateRGBSurface(0, width, height, 32, 0, 0, 0, 0);
+
+    // Set the color to draw the plus pattern
+    Uint32 plusColor = SDL_MapRGB(plusSurface->format, 165, 129, 79);
+
+    // Calculate the center coordinates of the surface
+    int centerX = width / 2;
+    int centerY = height / 2;
+
+    // Draw the plus pattern on the surface
+    for (int x = centerX - 2; x <= centerX + 1; x++)
+    {
+        // Draw horizontal lines
+        for (int y = 0; y < height; y++)
+        {
+            Uint32* pixel = (Uint32*)((Uint8*)plusSurface->pixels + y * plusSurface->pitch + x * sizeof(Uint32));
+            *pixel = plusColor;
+        }
+    }
+
+    for (int y = centerY - 2; y <= centerY + 1; y++)
+    {
+        // Draw vertical lines
+        for (int x = 0; x < width; x++)
+        {
+            Uint32* pixel = (Uint32*)((Uint8*)plusSurface->pixels + y * plusSurface->pitch + x * sizeof(Uint32));
+            *pixel = plusColor;
+        }
+    }
+
+    return plusSurface;
+}
