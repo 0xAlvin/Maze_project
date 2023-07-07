@@ -12,6 +12,7 @@
  * This function draws a circle on the specified renderer using the specified color.
  * The colorname parameter should be one of the supported color names: RED, GREEN,
  * BLUE, YELLOW, WHITE, or BLACK.
+ * 
  */
 void drawCircle(SDL_Renderer *renderer, const char *colorname, int x, int y, int r)
 {
