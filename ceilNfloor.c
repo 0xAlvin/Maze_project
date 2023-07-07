@@ -15,7 +15,7 @@ void drawCeilFloor(SDL_Renderer *renderer, SDL_Texture *textureFloor, SDL_Textur
 {
     SDL_Rect rect;
     // floor
-    if (textureFloor != NULL)//applys a image texture passed as a parameter for the floor
+    if (textureFloor != NULL) // applys a image texture passed as a parameter for the floor
     {
         rect.x = 0;
         rect.y = windowH / 2;
@@ -23,7 +23,20 @@ void drawCeilFloor(SDL_Renderer *renderer, SDL_Texture *textureFloor, SDL_Textur
         rect.h = windowH / 2;
         SDL_RenderDrawRect(renderer2, &rect);
         SDL_RenderCopy(renderer2, textureFloor, NULL, &rect);
-    }else if (textureCeil != NULL)//applys a image texture passed as a parameter for the ceiling
+    }
+    else // applys a image texture passed as a parameter for the ceiling
+    {
+        rect.x = 0;
+        rect.y = windowH / 2;
+        rect.w = windowW;
+        rect.h = windowH / 2;
+        SDL_RenderDrawRect(renderer2, &rect);
+        SDL_SetRenderDrawColor(renderer2, COLOR_BROWN.r, COLOR_BROWN.g, COLOR_BROWN.b, COLOR_BROWN.a); // creates a brown floor
+        SDL_RenderFillRect(renderer2, &rect);
+    }
+
+    // ceiling
+    if (textureCeil != NULL) // createas a blue ceiling
     {
         rect.x = 0;
         rect.y = 0;
@@ -32,18 +45,8 @@ void drawCeilFloor(SDL_Renderer *renderer, SDL_Texture *textureFloor, SDL_Textur
         SDL_RenderDrawRect(renderer2, &rect);
         SDL_RenderCopy(renderer2, textureCeil, NULL, &rect);
     }
-    else if (textureFloor == NULL)
-    {   
-        rect.x = 0;
-        rect.y = windowH / 2;
-        rect.w = windowW;
-        rect.h = windowH / 2;
-        SDL_RenderDrawRect(renderer2, &rect);
-        SDL_SetRenderDrawColor(renderer2, COLOR_BROWN.r, COLOR_BROWN.g, COLOR_BROWN.b, COLOR_BROWN.a); //creates a brown floor
-        SDL_RenderFillRect(renderer2, &rect);
-    }
-    else if (textureCeil == NULL)//createas a blue ceiling
-    {   
+    else
+    {
         rect.x = 0;
         rect.y = 0;
         rect.w = windowW;
