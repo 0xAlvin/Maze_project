@@ -72,5 +72,4 @@ void crossHair(SDL_Renderer *renderer, SDL_Window *window);
 
 extern int attilleryInvoke;
 
-
 #endif //_MAZE_H_
