@@ -6,9 +6,8 @@ The goal of this project is to create a game in 3D using raycasting !
 
 <img src="./doc/image.png" height="100%" width="100%">
 
-<p style="text-align:justify;">
-The decision to undertake this project was driven by a desire to engage in a challenging endeavor that would allow me to utilize and showcase my proficiency in the C programming language. I sought an opportunity to put my C skills to the test by creating a tangible and meaningful output. By embarking on this project, I aimed to explore the boundaries of what I could achieve using C and challenge myself to develop a substantial application.
-</p>
+> The decision to undertake this project was driven by a desire to engage in a challenging endeavor that would allow me to utilize and showcase my proficiency in the C programming language. I sought an opportunity to put my C skills to the test by creating a tangible and meaningful output. By embarking on this project, I aimed to explore the boundaries of what I could achieve using C and challenge myself to develop a substantial application.
+
 
 ### Links on RayCasting concept
 
