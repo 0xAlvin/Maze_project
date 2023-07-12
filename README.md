@@ -13,7 +13,9 @@ The goal of this project is to create a game in 3D using raycasting !
 
 #### Compilation command
 I have created a make file that compiles the source code and create  one executable.
-```$make all```
+```
+$make all
+```
 
 ### Usage
 After compiling using the make file just run:
