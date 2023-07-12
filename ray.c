@@ -15,8 +15,6 @@ void drawRays(SDL_Renderer *renderer, SDL_Renderer *renderer2, Player *player, S
     SDL_Point target;
     SDL_Point closest;
     SDL_Rect rect;
-    SDL_Surface *surface = createPlusTexture(0, 0);
-    SDL_Texture *t = SDL_CreateTextureFromSurface(renderer2, surface); // creates brown texture
 
     // The thickness the bars can be based on the window width
     int rayPreviewrenstep = windowW * 1.15 / fov;
