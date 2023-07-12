@@ -18,8 +18,6 @@ Player *createPlayer()
 
 /**
  * playerPosition - Returns the players position
- * @param x - The x position
- * @param y - The y position
  * @param player - The player
  * @return int* - The players position
 */
