@@ -15,7 +15,7 @@ The goal of this project is to create a game in 3D using raycasting !
 > see: NICKY CASE
 [recommended](https://ncase.me/)
 
-I found HER content help full.
+I found HER content helpful.
 
 #### Compilation command
 I have created a make file that compiles the source code and create  one executable.
