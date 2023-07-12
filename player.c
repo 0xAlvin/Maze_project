@@ -25,9 +25,9 @@ Player *createPlayer()
 */
 int *playerPosition(int x, int y, Player player)
 {
-    int *pos = malloc(2 * sizeof(int)); // Dynamically allocate memory
-    pos[0] = player.pos.p1.x;
-    pos[1] = player.pos.p1.y;
+    int *pos = malloc(2 * sizeof(int));
+    pos[0] = x;
+    pos[1] = y;
     return pos;
 }
 

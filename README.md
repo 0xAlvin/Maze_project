@@ -11,17 +11,48 @@ The goal of this project is to create a game in 3D using raycasting !
 - [RAYCASTING !!!](https://intranet.alxswe.com/rltoken/vRw7CP21mUmKFDdrQjQ2GA)
 - [Alternative Raycasting Tutorial](https://intranet.alxswe.com/rltoken/dnQwzgrDUEhFXIF8sNivkg)
 
-### For more insight: 
-> see: NICKY CASE
-[recommended](https://ncase.me/)
-
-I found HER content helpful.
-
 #### Compilation command
 I have created a make file that compiles the source code and create  one executable.
 ```$make all```
+
+### Usage
+After compiling using the make file just run:
+
+```
+$ ./bin/maze 
+```
+
+or
+
+```
+$ cd bin
+$./maze
+```
+
+To remove it run:
+
+```
+$ make clean
+```
+
+### Contributing
+
+### Related projects
+- Sight and light [NICKY CASE]
+
+For more insight:
+> see: NICKY CASE
+[recommended](https://ncase.me/sight-and-light/)
+
+I found HER content helpful.
 
 AUTHOR
 - Alvin Vaati 
 - email (alvinvaati@gmail.com)
 - [Twitter](https://twitter.com/alvinvaati)
+
+LISENCE
+
+<a href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="./doc/p_img.png"></a>
+
+To the extent possible under law, Alvin Vaati has waived all copyright and related or neighboring rights to this work.

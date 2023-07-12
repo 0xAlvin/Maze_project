@@ -27,7 +27,6 @@ int main()
     }
     char line[256];
 
-    int i = 0;
 
     char *token;
     while (fgets(line, MAX_BUFFER_SIZE - 1, mapFile))
@@ -73,8 +72,8 @@ int main()
         }
 
         // Game logic and rendering
-        SDL_Texture *textureFloor = loadTexture(renderer2, "pics/greystone.png");
-        SDL_Texture *textureCeil = loadTexture(renderer2, "pics/wood.png");
+        // SDL_Texture *textureFloor = loadTexture(renderer2, "pics/greystone.png");
+        // SDL_Texture *textureCeil = loadTexture(renderer2, "pics/wood.png");
 
         // draw floor and ceiling
         drawCeilFloor(renderer2, NULL, NULL);
