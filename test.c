@@ -57,56 +57,107 @@
 
 //     return 0;
 // }
-
 // #include <SDL2/SDL.h>
-// int  attilleryInvoke;
+// #include <SDL2/SDL_image.h>
+// #include <math.h>
+// int attilleryInvoke;
 
+// #define PI 3.14159265358979323846
 
 // int main(int argc, char* argv[]) {
 //     // Initialize SDL
 //     SDL_Init(SDL_INIT_VIDEO);
 
 //     // Create a window
-//     SDL_Window* window = SDL_CreateWindow("SDL Crosshair", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
+//     SDL_Window* window = SDL_CreateWindow("SDL Rotation Movement", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480, SDL_WINDOW_SHOWN);
 
 //     // Create a renderer
 //     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-//     // Set the blend mode to enable transparency
-//     SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+//     // Load image
+//     SDL_Surface* surface = IMG_Load("pics/thirdg.png");
+//     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+//     SDL_FreeSurface(surface);
 
-//     // Clear the renderer with a transparent background
+//     // Get image dimensions
+//     int imgWidth, imgHeight;
+//     SDL_QueryTexture(texture, NULL, NULL, &imgWidth, &imgHeight);
+
+//     // Set the rotation point of origin
+//     int rotationOriginX = imgWidth / 2;    // Center X coordinate of the image
+//     int rotationOriginY = imgHeight / 2;   // Center Y coordinate of the image
+
+//     // Set the initial rotation angle and distance from the origin
+//     double rotationAngle = 0.0;
+//     double rotationDistance = 100.0;
+
+//     // Clear the renderer
 //     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
 //     SDL_RenderClear(renderer);
 
-//     // Get the window size
-//     int windowWidth, windowHeight;
-//     SDL_GetWindowSize(window, &windowWidth, &windowHeight);
+//     // Event loop flag
+//     int quit = 0;
 
-//     // Calculate the center coordinates of the window
-//     int centerX = windowWidth / 2;
-//     int centerY = windowHeight / 2;
+//     // Event object
+//     SDL_Event event;
 
-//     // Define the size and thickness of the crosshair lines
-//     int crosshairSize = 20;
-//     int crosshairThickness = 2;
+//     // Event loop
+//     while (!quit) {
+//         // Poll for events
+//         while (SDL_PollEvent(&event)) {
+//             // Check the type of event
+//             if (event.type == SDL_QUIT) {
+//                 // User closed the window
+//                 quit = 1;
+//             }
+//             else if (event.type == SDL_KEYDOWN) {
+//                 // Check for rotation movement keys
+//                 switch (event.key.keysym.sym) {
+//                     case SDLK_LEFT:
+//                         rotationAngle -= 5.0;    // Decrease the rotation angle
+//                         break;
+//                     case SDLK_RIGHT:
+//                         rotationAngle += 5.0;    // Increase the rotation angle
+//                         break;
+//                     case SDLK_UP:
+//                         rotationDistance += 5.0;  // Increase the distance from the origin
+//                         break;
+//                     case SDLK_DOWN:
+//                         rotationDistance -= 5.0;  // Decrease the distance from the origin
+//                         if (rotationDistance < 0.0) {
+//                             rotationDistance = 0.0;  // Clamp the distance to a minimum of 0
+//                         }
+//                         break;
+//                     default:
+//                         break;
+//                 }
+//             }
+//         }
 
-//     // Set the draw color for the crosshair lines (red with transparency)
-//     SDL_SetRenderDrawColor(renderer, 255, 0, 0, 128);
+//         // Calculate the new position based on rotation angle and distance
+//         double angleRadians = rotationAngle * PI / 180.0;
+//         int posX = rotationOriginX + (int)(rotationDistance * cos(angleRadians));
+//         int posY = rotationOriginY + (int)(rotationDistance * sin(angleRadians));
 
-//     // Draw the vertical line of the crosshair
-//     SDL_RenderDrawLine(renderer, centerX, centerY - crosshairSize, centerX, centerY + crosshairSize);
+//         // Clear the renderer
+//         SDL_RenderClear(renderer);
 
-//     // Draw the horizontal line of the crosshair
-//     SDL_RenderDrawLine(renderer, centerX - crosshairSize, centerY, centerX + crosshairSize, centerY);
+//         // Set the rendering destination rectangle
+//         SDL_Rect destRect;
+//         destRect.x = posX - rotationOriginX;     // X coordinate of the destination rectangle
+//         destRect.y = posY - rotationOriginY;     // Y coordinate of the destination rectangle
+//         destRect.w = imgWidth;                   // Width of the destination rectangle
+//         destRect.h = imgHeight;                  // Height of the destination rectangle
 
-//     // Update the screen
-//     SDL_RenderPresent(renderer);
+//         // Render the image
+//         SDL_RenderCopy(renderer, texture, NULL, &destRect);
 
-//     // Wait for 5 seconds
-//     SDL_Delay(5000);
+//         // Update the screen
+//         SDL_RenderPresent(renderer);
+//     }
 
 //     // Clean up resources
+//     SDL_DestroyTexture(texture);
 //     SDL_DestroyRenderer(renderer);
 //     SDL_DestroyWindow(window);
 //     SDL_Quit();
