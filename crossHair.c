@@ -17,7 +17,6 @@ void crossHair(SDL_Renderer *renderer, SDL_Window *window)
 
     // Define the size and thickness of the crosshair lines
     int crosshairSize = 20;
-    int crosshairThickness = 2;
 
     // Set the draw color for the crosshair lines (red with transparency)
     SDL_SetRenderDrawColor(renderer, COLOR_YELLOW.r, COLOR_YELLOW.g, COLOR_YELLOW.b, COLOR_YELLOW.a);
