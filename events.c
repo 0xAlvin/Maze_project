@@ -1,12 +1,26 @@
 #include "include/maze.h"
-int open = false;
-int count = 0;
 
-// handle input
+/**
+ * eventHandler - Handles events from the SDL window.
+ * @param event: The event to handle.
+ * @param isRunning: A pointer to the isRunning variable.
+ * @param player: A pointer to the player struct.
+ * @param walls: The array of walls.
+ * @param wallCount: The number of walls.
+ * @param renderer: The SDL renderer to draw on.
+ * @param window: The SDL window to draw on.
+ * @param texture: The SDL texture to draw on.
+ * @param rect: The SDL rectangle to draw on.
+ * @param surface: The SDL surface to draw on.
+ * @param filename: The filename of the texture to draw on.
+ * @param open: A boolean to check if the map window is open.
+ * @return void
+ */
+int open = false;
 void eventHandler(SDL_Event *event, int *isRunning, Player *player, SDL_Point walls[wallmaxCount][2], int wallCount)
 {
 
-    // attillery
+    // attillery variables declaration
     char *filename = malloc(20);
     SDL_Texture *texture = NULL;
     SDL_Rect rect;

@@ -1,6 +1,9 @@
 #include "include/maze.h"
 #include "include/colors.h"
-
+/**
+ * createPlayer - Creates a player
+ * @return Player - The player
+*/
 vector2D spwan = {200, 200};//spwan point
 
 Player *createPlayer()
@@ -13,6 +16,13 @@ Player *createPlayer()
     return player;
 }
 
+/**
+ * playerPosition - Returns the players position
+ * @param x - The x position
+ * @param y - The y position
+ * @param player - The player
+ * @return int* - The players position
+*/
 int *playerPosition(int x, int y, Player player)
 {
     int *pos = malloc(2 * sizeof(int)); // Dynamically allocate memory
@@ -20,6 +30,13 @@ int *playerPosition(int x, int y, Player player)
     pos[1] = player.pos.p1.y;
     return pos;
 }
+
+/**
+ * drawPlayer - Draws the player on the screen
+ * @param renderer - The renderer to draw to
+ * @param player - The player to draw
+ * @return void
+*/
 void drawPlayer(SDL_Renderer *renderer, Player *player)
 {
     SDL_SetRenderDrawColor(renderer, COLOR_YELLOW.r, COLOR_BLUE.g, COLOR_BLACK.b, COLOR_GREEN.a);
@@ -27,6 +44,14 @@ void drawPlayer(SDL_Renderer *renderer, Player *player)
     drawCircle(renderer, "GREEN", player->pos.p1.x, player->pos.p1.y, 10);
     SDL_RenderDrawLine(renderer, player->pos.p1.x, player->pos.p1.y, target.x, target.y);
 }
+
+/**
+ * movePlayer - Moves the player
+ * @param player - The player to move
+ * @param walls - The walls to check for collision
+ * @param wallCount - The number of walls
+ * @param cmd - The command to move the player ->int taken as parameter from events.c keypress
+*/
 Player *movePlayer(Player *player,SDL_Point walls[wallmaxCount][2], int wallCount, int cmd)
 {
     Player *pl = player;
@@ -94,6 +119,19 @@ Player *movePlayer(Player *player,SDL_Point walls[wallmaxCount][2], int wallCoun
     }
     return player;
 }
+
+/**
+ * CheckCollision - Checks if two lines intersect
+ * @param x1 - The start x position of the first line
+ * @param y1 - The start y position of the first line
+ * @param x2 - The end x position of the first line
+ * @param y2 - The end y position of the first line
+ * @param x3 - The start x position of the second line
+ * @param y3 - The start y position of the second line
+ * @param x4 - The end x position of the second line
+ * @param y4 - The end y position of the second line
+ * @return int - 1 if the lines intersect, 0 otherwise
+*/
 int CheckCollision(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)
 {
     int denom = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);

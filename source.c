@@ -1,6 +1,11 @@
 #include "include/maze.h"
 #include "include/colors.h"
 
+/**
+ * main - The entry point of the program.
+ * @return: Returns 0 if the program exited successfully, otherwise 1.
+*/
+
 int attilleryInvoke = 0; // how many times attillery is called
 
 int main()

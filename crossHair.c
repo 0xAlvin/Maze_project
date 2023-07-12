@@ -1,6 +1,10 @@
 #include "include/maze.h"
 #include "include/colors.h"
-
+/**
+ * crossHair - Draws a crosshair on the renderer.
+ * @param renderer: The SDL renderer to draw on.
+ * @param window: The SDL window to draw on.
+*/
 void crossHair(SDL_Renderer *renderer, SDL_Window *window)
 {
 // Get the window size

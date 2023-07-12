@@ -1,13 +1,22 @@
 #include "include/maze.h"
 #include "include/colors.h"
 
+/**
+ * drawRays - Draws the rays on the screen
+ * @param renderer - The renderer to draw to
+ * @param player - The player to draw the rays from
+ * @param walls - The walls to draw the rays to
+ * @param wallCount - The number of walls
+ * @return void
+ */
+
 void drawRays(SDL_Renderer *renderer, SDL_Renderer *renderer2, Player *player, SDL_Point walls[200][2], int wallCount)
 {
     SDL_Point target;
     SDL_Point closest;
     SDL_Rect rect;
-    SDL_Surface *surface = createPlusTexture(0,0);
-    SDL_Texture *t = SDL_CreateTextureFromSurface(renderer2, surface);//creates brown texture
+    SDL_Surface *surface = createPlusTexture(0, 0);
+    SDL_Texture *t = SDL_CreateTextureFromSurface(renderer2, surface); // creates brown texture
 
     // The thickness the bars can be based on the window width
     int rayPreviewrenstep = windowW * 1.15 / fov;
@@ -73,7 +82,7 @@ void drawRays(SDL_Renderer *renderer, SDL_Renderer *renderer2, Player *player, S
 
             rect.x = rayPreviewrenstep * rayCount + (windowW - 900) / 3;
             rect.y = closestDistance / 2;
-            rect.h = windowH - rect.y *2;
+            rect.h = windowH - rect.y * 2;
 
             int brightness = 255 - closestDistance / 2;
             SDL_SetRenderDrawColor(renderer2, brightness, brightness, brightness, 255);
@@ -84,6 +93,14 @@ void drawRays(SDL_Renderer *renderer, SDL_Renderer *renderer2, Player *player, S
     }
 }
 
+/**
+ * CreateTarget - Creates a point dist pixels away in dir direction from x and y
+ * @param x - The x coordinate to start from
+ * @param y - The y coordinate to start from
+ * @param dir - The direction to go in
+ * @param dist - The distance to go
+ * @return SDL_Point - The point dist pixels away in dir direction from x and y
+ */
 SDL_Point CreateTarget(int x, int y, int dir, int dist)
 {
     // Create a point dist pixels away in dir direction from x and y
@@ -96,6 +113,16 @@ SDL_Point CreateTarget(int x, int y, int dir, int dist)
     return target;
 }
 
+/**
+ * PointOnLine - Checks if a point is on a line segment
+ * @param x1 - The x coordinate of the first point of the line
+ * @param y1 - The y coordinate of the first point of the line
+ * @param x2 - The x coordinate of the second point of the line
+ * @param y2 - The y coordinate of the second point of the line
+ * @param tx - The x coordinate of the point to check
+ * @param ty - The y coordinate of the point to check
+ * @return int - 1 if the point is on the line, 0 if not
+ */
 int PointOnLine(int x1, int y1, int x2, int y2, int tx, int ty)
 {
     // Check if a point is on a line segment
@@ -107,6 +134,14 @@ int PointOnLine(int x1, int y1, int x2, int y2, int tx, int ty)
     return false;
 }
 
+/**
+ * PointDistance - Finds the distance between two points
+ * @param x1 - The x coordinate of the first point
+ * @param y1 - The y coordinate of the first point
+ * @param x2 - The x coordinate of the second point
+ * @param y2 - The y coordinate of the second point
+ * @return int - The distance between the two points
+ */
 int PointDistance(int x1, int y1, int x2, int y2)
 {
     // Find the distance between two points

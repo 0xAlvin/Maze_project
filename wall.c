@@ -2,15 +2,11 @@
 #include "include/colors.h"
 
 /**
- * wall - Creates a vector2D with the given x and y coordinates.
- * @x1: The x1-coordinate.
- * @y1: The y1-coordinate.
- * @x2: The x2-coordinate.
- * @y2: The y2-coordinate.
- *
- * Return: A pointer to the dynamically allocated array of vector2D.
- */
-// const SDL_RenderDrawLine
+ * drawWalls - Draws the walls of the maze.
+ * @param renderer: The SDL renderer to draw on.
+ * @param walls: The array of walls to draw.
+ * @param wallCount: The number of walls to draw.
+*/
 void drawWalls(SDL_Renderer *renderer, SDL_Point walls[wallmaxCount][2], int wallCount)
 {
     // Loop over each wall and draw it
