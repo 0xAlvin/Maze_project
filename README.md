@@ -19,7 +19,7 @@ I have created a make file that compiles the source code and create  one executa
 After compiling using the make file just run:
 
 ```
-$ ./bin/maze 
+$ ./bin/maze
 ```
 
 or
@@ -37,6 +37,8 @@ $ make clean
 
 ### Contributing
 
+Contributions are always welcome! 
+
 ### Related projects
 - Sight and light [NICKY CASE]
 
@@ -47,7 +49,7 @@ For more insight:
 I found HER content helpful.
 
 AUTHOR
-- Alvin Vaati 
+- Alvin Vaati
 - email (alvinvaati@gmail.com)
 - [Twitter](https://twitter.com/alvinvaati)
 
