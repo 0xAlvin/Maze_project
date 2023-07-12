@@ -57,7 +57,7 @@ SDL_Rect drawRect(SDL_Renderer *renderer, const char *colorname, int x, int y, i
 SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* path);
 void drawCircle(SDL_Renderer *renderer, const char *colorname, int x, int y, int r);
 void drawPlayer(SDL_Renderer* renderer,Player* player);
-int* playerPosition(int x, int y,Player player);
+int* playerPosition(Player player);
 Player* createPlayer();
 void sendFrame(SDL_Renderer *renderer,SDL_Renderer *renderer2);
 void eventHandler(SDL_Event *event, int *isRunning, Player *player,SDL_Point walls[wallmaxCount][2], int wallCount);
@@ -72,5 +72,5 @@ void crossHair(SDL_Renderer *renderer, SDL_Window *window);
 
 extern int attilleryInvoke;
 
- 
+
 #endif //_MAZE_H_

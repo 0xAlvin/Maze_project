@@ -23,7 +23,7 @@ Player *createPlayer()
  * @param player - The player
  * @return int* - The players position
 */
-int *playerPosition(int x, int y, Player player)
+int *playerPosition(Player player)
 {
     int *pos = malloc(2 * sizeof(int));
     Player *pl = &player;
