@@ -37,7 +37,7 @@ $ make clean
 
 ### Contributing
 
-Contributions are always welcome! 
+Contributions are always welcome!
 
 ### Related projects
 - Sight and light [NICKY CASE]
@@ -52,8 +52,9 @@ AUTHOR
 - Alvin Vaati
 - email (alvinvaati@gmail.com)
 - [Twitter](https://twitter.com/alvinvaati)
+- [LinkedIN](https://www.linkedin.com/in/alvin-m-02aa93248)
 
-LISENCE
+LICENSE
 
 <a href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="./doc/p_img.png"></a>
 
