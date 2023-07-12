@@ -27,8 +27,8 @@ int *playerPosition(Player player)
 {
     int *pos = malloc(2 * sizeof(int));
     Player *pl = &player;
-    pos[0] = pl.pos.p1.x;
-    pos[1] = pl.pos.p1.y;
+    pos[0] = pl->pos.p1.x;
+    pos[1] = pl->pos.p1.y;
     return pos;
 }
 
