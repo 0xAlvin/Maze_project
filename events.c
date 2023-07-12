@@ -19,9 +19,10 @@
 int open = false;
 void eventHandler(SDL_Event *event, int *isRunning, Player *player, SDL_Point walls[wallmaxCount][2], int wallCount)
 {
+    //holds the value of how many times the attillery key has been pressed
     extern int attilleryInvoke;
-    // poll for events
 
+    // poll for events
     while (isRunning)
     {
         // poll for events
