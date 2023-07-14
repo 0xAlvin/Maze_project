@@ -49,7 +49,8 @@ $ make clean
 |KEY              | FUNCTION|
 | --------------- | ---------------- |
 |Q|Turn camera right|
-|E|Turn camera left
+|E|Turn camera left|
+|G|Change weapon|
 |&uarr;|Move Forward based on direction faced|
 |&darr;|Move Backwards|
 |&rarr;|Move to the Right|
