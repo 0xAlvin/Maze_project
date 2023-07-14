@@ -31,7 +31,7 @@ void drawCeilFloor(SDL_Renderer *renderer, SDL_Texture *textureFloor, SDL_Textur
         rect.w = windowW;
         rect.h = windowH / 2;
         SDL_RenderDrawRect(renderer2, &rect);
-        SDL_SetRenderDrawColor(renderer2, COLOR_BROWN.r, COLOR_BROWN.g, COLOR_BROWN.b, COLOR_BROWN.a); // creates a brown floor
+        SDL_SetRenderDrawColor(renderer2, COLOR_DARK_BROWN.r,COLOR_DARK_BROWN.g,COLOR_DARK_BROWN.b,COLOR_DARK_BROWN.a); // creates a brown floor
         SDL_RenderFillRect(renderer2, &rect);
     }
 
