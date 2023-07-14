@@ -54,6 +54,7 @@ typedef struct
     int length;
     int speed;
 } Rain;
+
 #define PI 3.14159265
 #define DEG2RAD(deg) (deg * PI / 180)
 #define fov 45
