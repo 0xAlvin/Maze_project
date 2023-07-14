@@ -3,8 +3,9 @@
 /**
  * createPlayer - Creates a player
  * @return Player - The player
-*/
-vector2D spwan = {200, 200};//spwan point
+ */
+
+vector2D spwan = {(windowW - 250), 30}; // spwan point
 
 Player *createPlayer()
 {
@@ -20,7 +21,7 @@ Player *createPlayer()
  * playerPosition - Returns the players position
  * @param player - The player
  * @return int* - The players position
-*/
+ */
 int *playerPosition(Player player)
 {
     int *pos = malloc(2 * sizeof(int));
@@ -35,7 +36,7 @@ int *playerPosition(Player player)
  * @param renderer - The renderer to draw to
  * @param player - The player to draw
  * @return void
-*/
+ */
 void drawPlayer(SDL_Renderer *renderer, Player *player)
 {
     SDL_SetRenderDrawColor(renderer, COLOR_YELLOW.r, COLOR_BLUE.g, COLOR_BLACK.b, COLOR_GREEN.a);
@@ -50,67 +51,62 @@ void drawPlayer(SDL_Renderer *renderer, Player *player)
  * @param walls - The walls to check for collision
  * @param wallCount - The number of walls
  * @param cmd - The command to move the player ->int taken as parameter from events.c keypress
-*/
-Player *movePlayer(Player *player,SDL_Point walls[wallmaxCount][2], int wallCount, int cmd)
+ */
+Player *movePlayer(Player *player, SDL_Point walls[wallmaxCount][2], int wallCount, int cmd)
 {
-    Player *pl = player;
+    Player *pl = player; //(PL) is a pointer to player
 
     switch (cmd)
     {
-    case 1:
-        player->pos.p1.x += playerStep;
-        player->pos.p2.x += playerStep;
-        player->pos.p1.y -= playerStep;
-        player->pos.p2.y -= playerStep;
-
+    case 1: // up amd right
+        forward(pl);
+        right(pl);
         break;
-    case 2:
-        player->pos.p1.x += playerStep;
-        player->pos.p2.x += playerStep;
-        player->pos.p1.y += playerStep;
-        player->pos.p2.y += playerStep;
+    case 2: // down and right
+        backward(pl);
+        right(pl);
         break;
-    case 3:
-        player->pos.p1.x -= playerStep;
-        player->pos.p2.x -= playerStep;
-        player->pos.p1.y += playerStep;
-        player->pos.p2.y += playerStep;
+    case 3: // up and left
+        forward(pl);
+        left(pl);
         break;
-    case 4:
-        player->pos.p1.x -= playerStep;
-        player->pos.p2.x -= playerStep;
-        player->pos.p1.y -= playerStep;
-        player->pos.p2.y -= playerStep;
+    case 4: // down and left
+        backward(pl);
+        left(pl);
         break;
-    case 5:
-        player->angle -= 10;
+    case 5: // rotate left
+        player->angle -= TURN_ANGLE;
+        if (player->angle < 0)
+        {
+            player->angle = 360;
+        }
         break;
-    case 6:
-        player->angle += 10;
+    case 6: // rotate right
+        player->angle += TURN_ANGLE;
+        if (player->angle > 360)
+        {
+            player->angle = 0;
+        }
         break;
-    case 7:
-        player->pos.p1.y -= playerStep;
-        player->pos.p2.y -= playerStep;
+    case 7: // up
+        forward(pl);
         break;
-    case 8:
-        player->pos.p1.y += playerStep;
-        player->pos.p2.y += playerStep;
+    case 8: // down
+        backward(pl);
         break;
-    case 9:
-        player->pos.p1.x -= playerStep;
-        player->pos.p2.x -= playerStep;
+    case 9: // left
+        left(pl);
         break;
-    case 10:
-        player->pos.p1.x += playerStep;
-        player->pos.p2.x += playerStep;
+    case 10: // right
+        right(pl);
         break;
     default:
         break;
     }
-        // Check collision with walls
+    // Check collision with walls
     for (int i = 0; i < wallCount; i++)
     {
-        if (CheckCollision(pl->pos.p1.x,pl->pos.p1.y, player->pos.p1.x, player->pos.p1.y, walls[i][0].x, walls[i][0].y, walls[i][1].x, walls[i][1].y))
+        if (CheckCollision(pl->pos.p1.x, pl->pos.p1.y, player->pos.p1.x, player->pos.p1.y, walls[i][0].x, walls[i][0].y, walls[i][1].x, walls[i][1].y))
         {
             // Collision detected, do not update player position
             return pl;
@@ -130,7 +126,7 @@ Player *movePlayer(Player *player,SDL_Point walls[wallmaxCount][2], int wallCoun
  * @param x4 - The end x position of the second line
  * @param y4 - The end y position of the second line
  * @return int - 1 if the lines intersect, 0 otherwise
-*/
+ */
 int CheckCollision(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4)
 {
     int denom = (y4 - y3) * (x2 - x1) - (x4 - x3) * (y2 - y1);
