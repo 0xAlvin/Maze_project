@@ -17,6 +17,7 @@
  * @return void
  */
 int open = false;
+int rainIng = false;
 void eventHandler(SDL_Event *event, int *isRunning, Player *player, SDL_Point walls[wallmaxCount][2], int wallCount)
 {
     // holds the value of how many times the attillery key has been pressed
@@ -62,6 +63,16 @@ void eventHandler(SDL_Event *event, int *isRunning, Player *player, SDL_Point wa
             if (attilleryInvoke == 4)
             {
                 attilleryInvoke = 0;
+            }
+        }else if (keyboardState[SDL_SCANCODE_P])
+        {
+            if (rainIng == false)
+            {
+                rainIng = true;
+            }
+            else
+            {
+                rainIng = false;
             }
         }
         else if (keyboardState[SDL_SCANCODE_M]) // map
