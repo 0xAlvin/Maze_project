@@ -16,26 +16,44 @@
 #define true 1
 #define false 0
 
+//define vector2D
 typedef struct {
     int x;
     int y;
 } vector2D;
+
+//define Circle
 typedef struct {
     int centerX;
     int centerY;
     int radius;
 } Circle;
+
+//define Point
 typedef struct{
     vector2D p1;
     vector2D p2;
 }Point;
+
+//define Wall
 typedef struct{
     Point coordinate;
 }Wall;
+
+//define Player
 typedef struct{
     Point pos;
     int angle;
 }Player;
+
+//define Rain
+typedef struct
+{
+    int x;
+    int y;
+    int length;
+    int speed;
+} Rain;
 #define PI 3.14159265
 #define DEG2RAD(deg) (deg * PI / 180)
 #define fov 45
@@ -69,7 +87,9 @@ SDL_Surface* createPlusTexture(int width, int height);
 Player *movePlayer(Player *player,SDL_Point walls[wallmaxCount][2], int wallCount, int cmd);
 char* attillery(int selectedAttillery);
 void crossHair(SDL_Renderer *renderer, SDL_Window *window);
+int rain(SDL_Renderer *renderer, int drops, int delay);
 
 extern int attilleryInvoke;
+extern int rainIng;
 
 #endif //_MAZE_H_
