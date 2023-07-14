@@ -2,9 +2,22 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -pedantic -fdiagnostics-color=always
 LIBS = -lSDL2main -lSDL2 -lm -lSDL2_image
 INCLUDE = -Iinclude
+OBJDIR = obj
+BINDIR = bin
 
-maze: source.c addImage.c attillery.c ceilNfloor.c circle.c crossHair.c events.c frame.c ray.c rect.c wall.c window.c player.c 
-	$(CC) -g source.c addImage.c attillery.c ceilNfloor.c circle.c crossHair.c events.c frame.c ray.c rect.c wall.c window.c player.c -o bin/maze $(INCLUDE) $(LIBS) $(CFLAGS)
+# List of source files
+SOURCES = source.c addImage.c attillery.c ceilNfloor.c circle.c crossHair.c events.c frame.c ray.c rect.c wall.c window.c player.c
+
+# Convert source file names to object file names
+OBJECTS = $(addprefix $(OBJDIR)/,$(SOURCES:.c=.o))
+
+# Target: maze
+$(BINDIR)/maze: $(OBJECTS)
+	$(CC) $(CFLAGS) $(OBJECTS) -o $@ $(LIBS)
+
+# Rule for compiling source files into object files
+$(OBJDIR)/%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
-	rm -f bin/maze
+	rm -f $(BINDIR)/maze $(OBJECTS)
