@@ -2,3 +2,5 @@
 obj/*.o
 !bin/*.txt
 bin/*
+test.c
+plot.drawio
