@@ -45,6 +45,15 @@ To remove it run:
 ```
 $ make clean
 ```
+#### Controls
+|KEY              | FUNCTION|
+| --------------- | ---------------- |
+|Q|Turn camera right|
+|E|Turn camera left
+|&uarr;|Move Forward based on direction faced|
+|&darr;|Move Backwards|
+|&rarr;|Move to the Right|
+|&larr;|Move to the Left|
 
 ### Contributing
 
