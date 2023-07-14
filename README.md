@@ -19,9 +19,10 @@ The goal of this project is to create a game in 3D using raycasting !
 #### Compilation command
 
 I have created a make file that compiles the source code and create one executable.
+Just navigate to the project / directory and run
 
 ```
-$ make maze
+$ make
 ```
 
 ### Usage
