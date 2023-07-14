@@ -7,6 +7,7 @@
 */
 
 int attilleryInvoke = 0; // how many times attillery is called
+extern int rainIng;
 
 int main()
 {
@@ -97,7 +98,11 @@ int main()
         {
             crossHair(renderer2, window2);
         }
-
+        //rain
+        if (rainIng == true)
+        {
+            rain(renderer2,1000,10);
+        }
         SDL_Delay(1000 / 60);
         SDL_SetRenderDrawColor(renderer, COLOR_CLEAR.r, COLOR_CLEAR.g, COLOR_CLEAR.b, COLOR_CLEAR.a);
         // Update the renderer
