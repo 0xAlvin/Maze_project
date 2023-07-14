@@ -57,7 +57,7 @@ typedef struct
 
 #define PI 3.14159265
 #define DEG2RAD(deg) (deg * PI / 180)
-#define fov 45
+#define fov 60
 #define viewRange 1000
 #define TEXTURE_SCALE 2
 #define TEXTURE_HEIGHT
@@ -66,6 +66,7 @@ typedef struct
 #define MAX_BUFFER_SIZE 24
 #define Separator ","
 #define buffer = malloc(MAX_BUFFER_SIZE * sizeof(char));
+#define TURN_ANGLE 5
 
 
 // Function prototypes
@@ -89,6 +90,11 @@ Player *movePlayer(Player *player,SDL_Point walls[wallmaxCount][2], int wallCoun
 char* attillery(int selectedAttillery);
 void crossHair(SDL_Renderer *renderer, SDL_Window *window);
 int rain(SDL_Renderer *renderer, int drops, int delay);
+char *cardinalDirection(Player *player);
+void forward(Player *player);
+void backward(Player *player);
+void left(Player *player);
+void right(Player *player);
 
 extern int attilleryInvoke;
 extern int rainIng;
