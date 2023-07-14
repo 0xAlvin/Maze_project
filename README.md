@@ -51,6 +51,7 @@ $ make clean
 |Q|Turn camera right|
 |E|Turn camera left|
 |G|Change weapon|
+|P|Make it rain|
 |&uarr;|Move Forward based on direction faced|
 |&darr;|Move Backwards|
 |&rarr;|Move to the Right|
