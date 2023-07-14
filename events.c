@@ -49,13 +49,33 @@ void eventHandler(SDL_Event *event, int *isRunning, Player *player, SDL_Point wa
         {
             movePlayer(player, walls, wallCount, 4);
         }
-        else if (keyboardState[SDL_SCANCODE_Q] || (keyboardState[SDL_SCANCODE_UP] && keyboardState[SDL_SCANCODE_Q]) || (keyboardState[SDL_SCANCODE_DOWN] && keyboardState[SDL_SCANCODE_Q]) || (keyboardState[SDL_SCANCODE_LEFT] && keyboardState[SDL_SCANCODE_Q]) || (keyboardState[SDL_SCANCODE_RIGHT] && keyboardState[SDL_SCANCODE_Q]))
+        else if (keyboardState[SDL_SCANCODE_Q])
         {
             movePlayer(player, walls, wallCount, 5);
         }
-        else if (keyboardState[SDL_SCANCODE_E] || (keyboardState[SDL_SCANCODE_UP] && keyboardState[SDL_SCANCODE_E]) || (keyboardState[SDL_SCANCODE_DOWN] && keyboardState[SDL_SCANCODE_E]) || (keyboardState[SDL_SCANCODE_LEFT] && keyboardState[SDL_SCANCODE_E]) || (keyboardState[SDL_SCANCODE_RIGHT] && keyboardState[SDL_SCANCODE_E]))
+        else if (keyboardState[SDL_SCANCODE_E])
         {
             movePlayer(player, walls, wallCount, 6);
+        }
+        else if ((keyboardState[SDL_SCANCODE_Q] && keyboardState[SDL_SCANCODE_UP]))
+        {
+            movePlayer(player, walls, wallCount, 5);
+            forward(player);
+        }
+        else if ((keyboardState[SDL_SCANCODE_Q] && keyboardState[SDL_SCANCODE_DOWN]))
+        {
+            movePlayer(player, walls, wallCount, 5);
+            backward(player);
+        }
+        else if ((keyboardState[SDL_SCANCODE_E] && keyboardState[SDL_SCANCODE_UP]))
+        {
+            movePlayer(player, walls, wallCount, 6);
+            forward(player);
+        }
+        else if ((keyboardState[SDL_SCANCODE_E] && keyboardState[SDL_SCANCODE_DOWN]))
+        {
+            movePlayer(player, walls, wallCount, 6);
+            backward(player);
         }
         else if (keyboardState[SDL_SCANCODE_G])
         {
@@ -63,16 +83,6 @@ void eventHandler(SDL_Event *event, int *isRunning, Player *player, SDL_Point wa
             if (attilleryInvoke == 4)
             {
                 attilleryInvoke = 0;
-            }
-        }else if (keyboardState[SDL_SCANCODE_P])
-        {
-            if (rainIng == false)
-            {
-                rainIng = true;
-            }
-            else
-            {
-                rainIng = false;
             }
         }
         else if (keyboardState[SDL_SCANCODE_M]) // map
