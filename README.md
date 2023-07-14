@@ -26,7 +26,10 @@ $ make
 ```
 
 ### Usage
-
+Clone the repo
+```
+$ git clone https://github.com/Al-vaati01/Maze_project
+```
 After compiling using the make file just run:
 
 ```
