@@ -85,6 +85,17 @@ void eventHandler(SDL_Event *event, int *isRunning, Player *player, SDL_Point wa
                 attilleryInvoke = 0;
             }
         }
+        else if (keyboardState[SDL_SCANCODE_P])
+        {
+            if (rainIng == false)
+            {
+                rainIng = true;
+            }
+            else
+            {
+                rainIng = false;
+            }
+        }
         else if (keyboardState[SDL_SCANCODE_M]) // map
         {
             if (open == false)
