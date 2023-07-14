@@ -16,6 +16,7 @@ int main()
     createWindows();
     // create player
     Player *player = createPlayer();
+    player->angle = 180; // face south
     int wallsCount = 0;
     SDL_Point walls[wallmaxCount][2];
 
@@ -89,7 +90,7 @@ int main()
         // attillery load
         char *attilleryPath;
         attilleryPath = attillery(attilleryInvoke);
-        SDL_Rect attilleryRect = drawRect(renderer2, " ", (windowW/4),(windowH - (windowH/(4))-50), (windowW/2), (windowH/4)+63); // creates a rect for attillery clear
+        SDL_Rect attilleryRect = drawRect(renderer2, "NULL", (windowW/4),(windowH - (windowH/(4))-50), (windowW/2), (windowH/4)+63); // creates a rect for attillery clear
         SDL_Texture *textureAttillery = loadTexture(renderer2, attilleryPath);
         SDL_RenderCopy(renderer2, textureAttillery, NULL, &attilleryRect);
 
