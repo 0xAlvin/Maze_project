@@ -6,7 +6,7 @@ OBJDIR = obj
 BINDIR = bin
 
 # List of source files
-SOURCES = source.c addImage.c attillery.c ceilNfloor.c circle.c crossHair.c events.c frame.c ray.c rect.c wall.c window.c player.c rain.c
+SOURCES = source.c addImage.c attillery.c ceilNfloor.c circle.c crossHair.c direction.c events.c frame.c move.c ray.c rect.c wall.c window.c player.c rain.c
 
 # Convert source file names to object file names
 OBJECTS = $(addprefix $(OBJDIR)/,$(SOURCES:.c=.o))
