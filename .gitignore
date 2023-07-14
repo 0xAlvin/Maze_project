@@ -1,2 +1,3 @@
 .vscode
-/bin/*.o
+/obj/*.o
+bin/*
