@@ -78,7 +78,7 @@ I found HER content helpful.
 
 ### AUTHOR
 
-#### Alvin Vaati
+**Alvin Vaati** 
 - email (alvinvaati@gmail.com)
 - [Twitter](https://twitter.com/alvinvaati)
 - [LinkedIN](https://www.linkedin.com/in/alvin-m-02aa93248)
