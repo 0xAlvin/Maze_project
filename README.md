@@ -76,14 +76,14 @@ For more insight:
 
 I found HER content helpful.
 
-AUTHOR
+### AUTHOR
 
-- Alvin Vaati
+#### Alvin Vaati
 - email (alvinvaati@gmail.com)
 - [Twitter](https://twitter.com/alvinvaati)
 - [LinkedIN](https://www.linkedin.com/in/alvin-m-02aa93248)
 
-LICENSE
+### LICENSE
 
 <a href="https://creativecommons.org/publicdomain/zero/1.0/"><img src="./doc/p_img.png"></a>
 
