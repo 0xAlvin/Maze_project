@@ -23,6 +23,8 @@
 #define PLAYER_SPEED 10
 
 #define PI 3.14159265358979323846
+#define P2 PI / 2
+#define P3 3 * PI / 2
 #define DEG2RAD(deg) (deg * PI / 180)
 #define RAD2DEG(rad) (rad * 180 / PI)
 #define FOV 60
