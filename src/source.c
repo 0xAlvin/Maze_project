@@ -11,6 +11,8 @@ SDLResources *sdlResources = createWindow();
 Point spawn = {40, 40};
 Player *player = malloc(sizeof(Player));
 player->pos = spawn;
+player->dir.x = cos(player->Angle) * 5;
+player->dir.y = sin(player->Angle) * 5;
 /*Loop*/
 int running = true;
 SDL_Event event;
@@ -28,6 +30,9 @@ if (event.type == SDL_KEYDOWN)
 {
 move(player, event);
 }
+
+map(sdlResources->renderer);
+drawRays(player, sdlResources->renderer);
 drawPlayer(player, sdlResources->renderer);
 
 /*Clear screen*/
