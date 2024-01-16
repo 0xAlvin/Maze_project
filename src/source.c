@@ -2,10 +2,41 @@
  * main - entry point
  * Return: 0 on success
  */
-#include<./include/maze.h>
+#include "../include/maze.h"
 
 int main(void)
 {
-printf("Hello World");
+init_();
+SDLResources *sdlResources = createWindow();
+Point spawn = {40, 40};
+Player *player = malloc(sizeof(Player));
+player->pos = spawn;
+/*Loop*/
+int running = true;
+SDL_Event event;
+
+while (running)
+{
+
+while (SDL_PollEvent(&event))
+{
+if (event.type == SDL_QUIT)
+{
+running = false;
+}
+if (event.type == SDL_KEYDOWN)
+{
+move(player, event);
+}
+drawPlayer(player, sdlResources->renderer);
+
+/*Clear screen*/
+clear(sdlResources->renderer);
+
+}
+}
+
+/*On Exit*/
+cleanUp(sdlResources->renderer, sdlResources->window);
 return (0);
 }
