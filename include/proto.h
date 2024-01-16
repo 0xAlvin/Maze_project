@@ -7,7 +7,7 @@ SDLResources *createWindow(void);
 void clear(SDL_Renderer *renderer);
 void cleanUp(SDL_Renderer *renderer, SDL_Window *window);
 void move(Player *player, SDL_Event keypress);
-void map(SDL_Renderer *renderer);
+void drawMap(SDL_Renderer *renderer);
 void drawRays(Player *player, SDL_Renderer *renderer);
 void drawLine(SDL_Renderer *renderer, int x1, int y1, int x2, int y2);
 

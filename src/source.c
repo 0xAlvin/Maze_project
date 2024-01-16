@@ -31,7 +31,7 @@ if (event.type == SDL_KEYDOWN)
 move(player, event);
 }
 
-map(sdlResources->renderer);
+drawMap(sdlResources->renderer);
 drawRays(player, sdlResources->renderer);
 drawPlayer(player, sdlResources->renderer);
 
