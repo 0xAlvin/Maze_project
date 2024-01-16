@@ -16,11 +16,15 @@ float y;
  * struct Player - player with x,y coordinates
  * @pos: position of player
  * @size: size of player
+ * @dir: direction of player
+ * @Angle: angle of player
 */
 typedef struct Player
 {
 Point pos;
 Point size;
+Point dir;
+float Angle;
 } Player;
 
 /**
