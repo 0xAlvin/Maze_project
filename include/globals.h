@@ -5,6 +5,7 @@
 
 extern Point spawn;
 extern Player *player;
-extern int mapX, mapY;
+extern int mapX, mapY, mapS;
+extern int map[];
 
 #endif /* __GLOBALS_H__ */
