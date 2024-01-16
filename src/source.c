@@ -7,6 +7,7 @@
 int main(void)
 {
 init_();
+/*TTF_Font *font = TTF_OpenFont("../assets/font/font.ttf", 25);*/
 SDLResources *sdlResources = createWindow();
 Point spawn = {40, 40};
 Player *player = malloc(sizeof(Player));
@@ -42,6 +43,8 @@ clear(sdlResources->renderer);
 }
 
 /*On Exit*/
+free(player);
 cleanUp(sdlResources->renderer, sdlResources->window);
+// free(sdlResources);
 return (0);
 }
