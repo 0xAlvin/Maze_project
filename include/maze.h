@@ -18,10 +18,20 @@
 #include "proto.h"
 #include "globals.h"
 
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 480
+
 #define PLAYER_SIZE 20
 #define PLAYER_SPEED 10
+
+#define PI 3.14159265358979323846
+#define DEG2RAD(deg) (deg * PI / 180)
+#define RAD2DEG(rad) (rad * 180 / PI)
+#define FOV 60
+#define RAY_NUM 300
+#define NUM_RAYS 300
+#define TILE_SIZE 64
+#define MAP_NUM_ROWS 13
+#define MAP_NUM_COLS 20
+#define MINIMAP_SCALE_FACTOR 0.3
 
 
 #define true 1
