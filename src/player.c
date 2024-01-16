@@ -20,7 +20,7 @@ SDL_RenderFillRect(renderer, &playerRect);
 int linewidth = 3;
 for (int i = 0; i < linewidth; i++)
 {
-SDL_RenderDrawLine(renderer, player->pos.x, player->pos.y + i,
-player->pos.x + player->dir.x * 5,
-player->pos.y + player->dir.y * 5 + i);
+drawLine(renderer, player->pos.x, player->pos.y,
+player->pos.x + player->dir.x * 10 * i,
+player->pos.y + player->dir.y * 10 * i);
 }}
