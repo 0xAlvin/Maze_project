@@ -1,5 +1,4 @@
 #include "../include/maze.h"
-
 /**
  * init_ - initialize SDL
  * Return: 0 on success
@@ -32,6 +31,7 @@ SDL_WINDOW_SHOWN);
 SDL_Renderer *renderer = SDL_CreateRenderer(window, -1,
 SDL_RENDERER_ACCELERATED);
 SDLResources *resources = malloc(sizeof(SDLResources));
+
 resources->window = window;
 resources->renderer = renderer;
 
