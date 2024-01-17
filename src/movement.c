@@ -4,10 +4,10 @@
  * @player: player
  * @keypress: keypress
  */
-void move(Player *player, SDL_Event keypress)
+void move(Player *player, SDL_Event *keypress)
 {
     const Uint8 *keyboardState = SDL_GetKeyboardState(NULL);
-    if (keypress.type == SDL_QUIT)
+    if (keypress->type == SDL_QUIT)
     {
         // if it is quit the program
         return;
