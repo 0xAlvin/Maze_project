@@ -10,6 +10,6 @@ void move(Player *player, SDL_Event keypress);
 void drawMap(SDL_Renderer *renderer);
 void drawRays(Player *player, SDL_Renderer *renderer);
 void drawLine(SDL_Renderer *renderer, int x1, int y1, int x2, int y2);
-float distance(float ax, float ay, float bx, float by, float angle);
+float distanceBetweenPoints(float x1, float y1, float x2, float y2);
 
 #endif /* __PROTO_H__ */
