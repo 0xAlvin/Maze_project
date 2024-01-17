@@ -20,7 +20,7 @@
 
 
 #define PLAYER_SIZE 8
-#define PLAYER_SPEED 5
+#define PLAYER_SPEED 2
 #define PLAYER_TURN_SPEED 5 * (PI / 180)
 
 #define PI 3.14159265358979323846
@@ -28,8 +28,9 @@
 #define P3 3 * PI / 2
 #define DEG2RAD(deg) (deg * PI / 180)
 #define RAD2DEG(rad) (rad * 180 / PI)
-#define FOV 60
 
+#define FOV 60
+#define NUM_RAYS 60 //360 if / rayI
 
 #define DEG 0.0174533
 
