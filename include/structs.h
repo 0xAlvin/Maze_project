@@ -39,5 +39,25 @@ SDL_Renderer *renderer;
 SDL_Window *window;
 } SDLResources;
 
+/**
+ * keys - keys
+ * @up: up
+ *  @down: down
+ * @left: left
+ * @right: right
+ * @a: a
+ * @d: d
+ *
+*/
+typedef struct keys
+{
+int up;
+int down;
+int left;
+int right;
+int a;
+int d;
+} keys;
+
 
 #endif /* __STRUCTS_H__ */
