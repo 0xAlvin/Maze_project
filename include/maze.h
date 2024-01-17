@@ -19,7 +19,7 @@
 #include "globals.h"
 
 
-#define PLAYER_SIZE 20
+#define PLAYER_SIZE 8
 #define PLAYER_SPEED 5
 #define PLAYER_TURN_SPEED 5 * (PI / 180)
 
@@ -29,12 +29,8 @@
 #define DEG2RAD(deg) (deg * PI / 180)
 #define RAD2DEG(rad) (rad * 180 / PI)
 #define FOV 60
-#define RAY_NUM 300
-#define NUM_RAYS 300
-#define TILE_SIZE 64
-#define MAP_NUM_ROWS 13
-#define MAP_NUM_COLS 20
-#define MINIMAP_SCALE_FACTOR 0.3
+
+
 #define DEG 0.0174533
 
 
