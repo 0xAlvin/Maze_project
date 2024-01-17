@@ -25,6 +25,7 @@ Point pos;
 Point size;
 Point dir;
 float Angle;
+int height;
 } Player;
 
 /**
