@@ -39,4 +39,10 @@
 //DARK BRONW
 #define COLOR_DARK_BROWN (SDL_Color) { 101, 67, 33, 255 }
 
+//ORANGE
+#define COLOR_ORANGE (SDL_Color) { 255, 165, 0, 255 }
+
+//PURPLE
+#define COLOR_PURPLE (SDL_Color) { 128, 0, 128, 255 }
+
 #endif //_COLORS_H_
