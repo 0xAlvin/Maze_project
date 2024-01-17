@@ -2,7 +2,7 @@
 #define __WINDOWS_H__
 
 
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 600
+#define SCREEN_WIDTH 1200
+#define SCREEN_HEIGHT 500
 
 #endif /* __WINDOWS_H__ */
