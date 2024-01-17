@@ -20,7 +20,8 @@
 
 
 #define PLAYER_SIZE 20
-#define PLAYER_SPEED 10
+#define PLAYER_SPEED 5
+#define PLAYER_TURN_SPEED 5 * (PI / 180)
 
 #define PI 3.14159265358979323846
 #define P2 PI / 2
@@ -34,6 +35,7 @@
 #define MAP_NUM_ROWS 13
 #define MAP_NUM_COLS 20
 #define MINIMAP_SCALE_FACTOR 0.3
+#define DEG 0.0174533
 
 
 #define true 1
