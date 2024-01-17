@@ -5,12 +5,12 @@ int mapX = 8, mapY = 8, mapS = 64;
 // float pdy;
 int map[] = {
     1, 1, 1, 1, 1, 1, 1, 1, // 1 = wall
-    1, 0, 0, 0, 0, 0, 0, 1, // 0 = space
+    1, 0, 0, 1, 0, 0, 0, 1, // 0 = space
     1, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 1, 1, 1, 1, 0, 1,
+    1, 0, 1, 0, 1, 1, 0, 1,
     1, 0, 1, 0, 0, 0, 0, 1,
     1, 0, 1, 0, 1, 1, 0, 1,
-    1, 0, 0, 0, 1, 0, 0, 1,
+    1, 0, 0, 0, 0, 0, 0, 1,
     1, 1, 1, 1, 1, 1, 1, 1};
 void drawMap(SDL_Renderer *renderer)
 {
@@ -42,9 +42,18 @@ void drawMap(SDL_Renderer *renderer)
 void drawRays(Player *player, SDL_Renderer *renderer)
 {
     int r, mx, my, mp, dof;
-    float rx, ry, ra, xo, yo;
-    ra = player->Angle;
-    for (r = 0; r < 1; r++)
+    float rx, ry, ra, xo, yo, disT;
+    // float rayI = 6;
+    ra = player->Angle - DEG * 30;
+    if (ra < 0)
+    {
+        ra += 2 * PI;
+    }
+    if (ra > 2 * PI)
+    {
+        ra -= 2 * PI;
+    }
+    for (r = 0; r < NUM_RAYS; r++)
     {
         dof = 0;
         float disH = 1000000, hx = player->pos.x, hy = player->pos.y;
@@ -135,14 +144,48 @@ void drawRays(Player *player, SDL_Renderer *renderer)
         {
             rx = vx;
             ry = vy;
+            disT = disV;
+            SDL_SetRenderDrawColor(renderer, COLOR_DARK_GRAY.r, COLOR_DARK_GRAY.g,
+                                   COLOR_DARK_GRAY.b, COLOR_DARK_GRAY.a);
         }
         if (disH < disV)
         {
             rx = hx;
             ry = hy;
+            disT = disH;
+            SDL_SetRenderDrawColor(renderer, COLOR_GRAY.r, COLOR_GRAY.g,
+                                   COLOR_GRAY.b, COLOR_GRAY.a);
         }
-        SDL_SetRenderDrawColor(renderer, COLOR_ORANGE.r, COLOR_ORANGE.g,
-                               COLOR_ORANGE.b, COLOR_ORANGE.a);
         SDL_RenderDrawLine(renderer, player->pos.x, player->pos.y, rx, ry);
+        // draw walls
+        float ca = player->Angle - ra;
+        if (ca < 0)
+        {
+            ca += 2 * PI;
+        }
+        if (ca > 2 * PI)
+        {
+            ca -= 2 * PI;
+        }
+        disT = disT * cos(ca);
+        float lineH = (mapS * 320) / disT;
+        if (lineH > 320)
+        {
+            lineH = 320;
+        }
+        float lineO = 160 - lineH / 2;
+        SDL_Rect rect = {(r * 8) + 530, lineO, 8, lineH};
+        SDL_RenderFillRect(renderer, &rect);
+        // SDL_RenderDrawLine(renderer, (r * 8) + 530, lineO, (r * 8) + 530, lineH + lineO);
+
+        ra += DEG; // / rayI
+        if (ra < 0)
+        {
+            ra += 2 * PI;
+        }
+        if (ra > 2 * PI)
+        {
+            ra -= 2 * PI;
+        }
     }
 }
