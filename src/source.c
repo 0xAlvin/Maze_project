@@ -12,8 +12,10 @@ int main(void)
     Point spawn = {40, 40};
     Player *player = malloc(sizeof(Player));
     player->pos = spawn;
+    player->Angle = 1;
     player->dir.x = cos(player->Angle) * 5;
     player->dir.y = sin(player->Angle) * 5;
+
     /*Loop*/
     int running = true;
     SDL_Event event;
