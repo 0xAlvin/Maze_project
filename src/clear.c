@@ -7,8 +7,8 @@
 
 void clear(SDL_Renderer *renderer)
 {
-SDL_SetRenderDrawColor(renderer, COLOR_GRAY.r, COLOR_GRAY.g,
-COLOR_GRAY.b, COLOR_GRAY.a);
+SDL_SetRenderDrawColor(renderer, COLOR_BLACK.r, COLOR_BLACK.g,
+COLOR_BLACK.b, COLOR_BLACK.a);
 SDL_RenderPresent(renderer);
 SDL_RenderClear(renderer);
 }
