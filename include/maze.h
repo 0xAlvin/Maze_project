@@ -1,8 +1,8 @@
 #ifndef _MAZE_H_
 #define _MAZE_H_
 
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include <SDL.h>
+#include <SDL_image.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -56,7 +56,7 @@ typedef struct
 } Rain;
 
 #define PI 3.14159265
-#define DEG2RAD(deg) (deg * PI / 180)
+#define DEG2RAD(deg) ((deg) * PI / 180)
 #define fov 60
 #define viewRange 1000
 #define TEXTURE_SCALE 2
@@ -78,10 +78,10 @@ SDL_Texture* loadTexture(SDL_Renderer* renderer, const char* path);
 void drawCircle(SDL_Renderer *renderer, const char *colorname, int x, int y, int r);
 void drawPlayer(SDL_Renderer* renderer,Player* player);
 int* playerPosition(Player player);
-Player* createPlayer();
+Player* createPlayer(void);
 void sendFrame(SDL_Renderer *renderer,SDL_Renderer *renderer2);
 void eventHandler(SDL_Event *event, int *isRunning, Player *player,SDL_Point walls[wallmaxCount][2], int wallCount);
-SDL_Point CreateTarget(int x, int y, int dir, int dist);
+SDL_Point CreateTarget(int x, int y, double dir, int dist);
 int PointOnLine(int x1, int y1, int x2, int y2, int tx, int ty);
 int PointDistance(int x1, int y1, int x2, int y2);
 int CheckCollision(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4);
@@ -95,6 +95,8 @@ void forward(Player *player);
 void backward(Player *player);
 void left(Player *player);
 void right(Player *player);
+int PointOnLineF(int x1, int y1, int x2, int y2, float tx, float ty);
+float PointDistanceF(int x1, int y1, float x2, float y2);
 
 extern int attilleryInvoke;
 extern int rainIng;
