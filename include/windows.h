@@ -1,7 +1,7 @@
 #ifndef _WINDOWS_H_
 #define _WINDOWS_H_
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 //windows
 extern SDL_Window *window; 
 extern SDL_Renderer *renderer;
