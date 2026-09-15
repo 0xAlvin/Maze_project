@@ -4,3 +4,5 @@ obj/*.o
 bin/*
 test.c
 plot.drawio
+.DS_Store
+
