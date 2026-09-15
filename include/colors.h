@@ -1,7 +1,7 @@
 #ifndef _COLORS_H_
 #define _COLORS_H_
 
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 // Red color
 #define COLOR_RED   (SDL_Color) { 255, 0, 0, 255 }
