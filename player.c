@@ -5,9 +5,9 @@
  * @return Player - The player
  */
 
-vector2D spwan = {(windowW - 250), 30}; // spwan point
+vector2D spwan = {250, 550}; // spwan point - moved to open interior space to isolate the tight-corridor theory
 
-Player *createPlayer()
+Player *createPlayer(void)
 {
     Player *player = malloc(sizeof(Player)); // Dynamically allocate memory
     player->pos.p1.x = spwan.x;
@@ -54,25 +54,28 @@ void drawPlayer(SDL_Renderer *renderer, Player *player)
  */
 Player *movePlayer(Player *player, SDL_Point walls[wallmaxCount][2], int wallCount, int cmd)
 {
-    Player *pl = player; //(PL) is a pointer to player
+    // Snapshot the position BEFORE moving. forward/backward/left/right
+    // mutate player->pos in place, so this is the only way to know the
+    // pre-move point to test the crossed segment against every wall.
+    Point before = player->pos;
 
     switch (cmd)
     {
     case 1: // up amd right
-        forward(pl);
-        right(pl);
+        forward(player);
+        right(player);
         break;
     case 2: // down and right
-        backward(pl);
-        right(pl);
+        backward(player);
+        right(player);
         break;
     case 3: // up and left
-        forward(pl);
-        left(pl);
+        forward(player);
+        left(player);
         break;
     case 4: // down and left
-        backward(pl);
-        left(pl);
+        backward(player);
+        left(player);
         break;
     case 5: // rotate left
         player->angle -= TURN_ANGLE;
@@ -89,27 +92,31 @@ Player *movePlayer(Player *player, SDL_Point walls[wallmaxCount][2], int wallCou
         }
         break;
     case 7: // up
-        forward(pl);
+        forward(player);
         break;
     case 8: // down
-        backward(pl);
+        backward(player);
         break;
     case 9: // left
-        left(pl);
+        left(player);
         break;
     case 10: // right
-        right(pl);
+        right(player);
         break;
     default:
         break;
     }
-    // Check collision with walls
+
+    // Check collision using the actual pre-move -> post-move segment.
     for (int i = 0; i < wallCount; i++)
     {
-        if (CheckCollision(pl->pos.p1.x, pl->pos.p1.y, player->pos.p1.x, player->pos.p1.y, walls[i][0].x, walls[i][0].y, walls[i][1].x, walls[i][1].y))
+        if (CheckCollision(before.p1.x, before.p1.y, player->pos.p1.x, player->pos.p1.y,
+                            walls[i][0].x, walls[i][0].y, walls[i][1].x, walls[i][1].y))
         {
-            // Collision detected, do not update player position
-            return pl;
+            // Collision detected — revert the whole position (p1 and p2)
+            // so facing/direction stays consistent with where we ended up.
+            player->pos = before;
+            return player;
         }
     }
     return player;
