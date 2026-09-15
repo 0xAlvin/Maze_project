@@ -9,14 +9,15 @@
 int attilleryInvoke = 0; // how many times attillery is called
 extern int rainIng;
 
-int main()
+int main(void)
 {
     SDL_Init(SDL_INIT_VIDEO);
 
     createWindows();
+
     // create player
     Player *player = createPlayer();
-    player->angle = 180; // face south
+    player->angle = 135; // temp debug: avoid staring dead-on down a cardinal axis (was 180)
     int wallsCount = 0;
     SDL_Point walls[wallmaxCount][2];
 
@@ -31,19 +32,43 @@ int main()
 
 
     char *token;
-    while (fgets(line, MAX_BUFFER_SIZE - 1, mapFile))
+    while (fgets(line, sizeof(line), mapFile))
     {
+        if (wallsCount >= wallmaxCount)
+        {
+            break;
+        }
+
         token = strtok(line, Separator);
+        if (token == NULL)
+        {
+            continue;
+        }
         walls[wallsCount][0].x = atoi(token);
         token = strtok(NULL, Separator);
+        if (token == NULL)
+        {
+            continue;
+        }
         walls[wallsCount][0].y = atoi(token);
         token = strtok(NULL, Separator);
+        if (token == NULL)
+        {
+            continue;
+        }
         walls[wallsCount][1].x = atoi(token);
         token = strtok(NULL, Separator);
+        if (token == NULL)
+        {
+            continue;
+        }
         walls[wallsCount][1].y = atoi(token);
         wallsCount++;
     }
     fclose(mapFile);
+
+    
+
     // Main loop
     SDL_Event event;
     int isRunning = 1;
@@ -86,6 +111,7 @@ int main()
         // draw walls
         drawWalls(renderer, walls, wallsCount);
         drawRays(renderer, renderer2, player, walls, wallsCount);
+        
         drawPlayer(renderer, player);
         // attillery load
         char *attilleryPath;
