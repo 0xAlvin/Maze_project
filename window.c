@@ -12,12 +12,23 @@ SDL_Renderer *renderer2 = NULL;
 
 void createWindows(void)
 {
+    // Force nearest-neighbor scaling globally, before any renderer is created,
+    // to avoid sub-pixel blending seams between adjacent thin rects.
+    SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
+
     // Creates a windows and renderers
     window = SDL_CreateWindow("Map", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 610, 700, SDL_WINDOW_HIDDEN | SDL_WINDOW_BORDERLESS | SDL_WINDOW_ALWAYS_ON_TOP);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    window2 = SDL_CreateWindow("THE MAZE", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, windowW, windowH, 0);
+
+    window2 = SDL_CreateWindow("THE MAZE", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, windowW, windowH, SDL_WINDOW_ALLOW_HIGHDPI);
     renderer2 = SDL_CreateRenderer(window2, -1, SDL_RENDERER_ACCELERATED);
+    SDL_RenderSetLogicalSize(renderer2, windowW, windowH);
+
+    // Force the logical->physical scale to a clean integer multiple so no
+    // rect boundary can land on a fractional physical pixel and leave a seam.
+    SDL_RenderSetIntegerScale(renderer2, SDL_TRUE);
 }
+
 void cleanUp(void)
 {
     SDL_DestroyWindow(window);
